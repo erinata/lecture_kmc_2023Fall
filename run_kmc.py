@@ -22,11 +22,23 @@ def run_kmeans(n, dataset):
   pyplot.scatter(dataset[:,0],dataset[:,1], c=results)
   pyplot.savefig("scatterplot_kmeans_" + str(n) + ".png")
   pyplot.close()
-  print(silhouette_score(dataset, results, metric="euclidean"))
+  return silhouette_score(dataset, results, metric="euclidean")
 
 
-run_kmeans(5, dataset)
+silhouette_score_list = [run_kmeans(i, dataset) for i in [2,3,4,5,6,7,8]]
 
+print(silhouette_score_list)
+
+pyplot.scatter([2,3,4,5,6,7,8], silhouette_score_list)
+pyplot.savefig("silhouette_score_kmeans.png")
+pyplot.close()
+
+
+
+
+  
+  
+  
 
 
 

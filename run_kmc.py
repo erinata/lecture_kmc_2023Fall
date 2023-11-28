@@ -19,7 +19,9 @@ def run_kmeans(n, dataset):
   machine = KMeans(n_clusters=n)
   machine.fit(dataset)
   results = machine.predict(dataset)
+  centroids = machine.cluster_centers_
   pyplot.scatter(dataset[:,0],dataset[:,1], c=results)
+  pyplot.scatter(centroids[:,0], centroids[:, 1], c="red", marker="*", s=300)
   pyplot.savefig("scatterplot_kmeans_" + str(n) + ".png")
   pyplot.close()
   return silhouette_score(dataset, results, metric="euclidean")

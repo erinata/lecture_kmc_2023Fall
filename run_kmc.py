@@ -30,9 +30,10 @@ def run_kmeans(n, dataset):
   return silhouette_score(dataset, results, metric="euclidean")
 
 
-silhouette_score_list = [run_kmeans(i, dataset) for i in [2,3,4,5,6,7,8]]
+n_list = [2,3,4,5,6,7,8]
+silhouette_score_list = [run_kmeans(i, dataset) for i in n_list]
 
-pyplot.scatter([2,3,4,5,6,7,8], silhouette_score_list)
+pyplot.scatter(n_list, silhouette_score_list)
 pyplot.savefig("silhouette_score_kmeans.png")
 pyplot.close()
 
@@ -52,9 +53,10 @@ def run_kmedoids(n, dataset):
   pyplot.close()
   return silhouette_score(dataset, results, metric="euclidean")
 
-silhouette_score_list = [run_kmedoids(i, dataset) for i in [2,3,4,5,6,7,8]]
+n_list = [2,3,4,5,6,7,8]
+silhouette_score_list = [run_kmedoids(i, dataset) for i in n_list]
 
-pyplot.scatter([2,3,4,5,6,7,8], silhouette_score_list)
+pyplot.scatter(n_list, silhouette_score_list)
 pyplot.savefig("silhouette_score_kmedoids.png")
 pyplot.close()
 
